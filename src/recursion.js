@@ -186,19 +186,7 @@ var exponent = function(base, exp) {
     return 1 / result;
   }
 
-
 };
-
-
-
-
-
-
-
-
-
-
-
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
@@ -248,9 +236,33 @@ var gcd = function(x, y) {
 var compareStr = function(str1, str2) {
 };
 
+
+
+
+
+
+
+
+
+
+
+// DO THESE ARRAY AND OBJECT PROBLEMS
+
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+
+  var result = [];
+
+  if (str.length === 0) {
+    return result;
+  }
+
+  result.push(str[0]);
+  str = str.substring(1);
+  result = result.concat(createArray(str));
+  return result;
+
 };
 
 // 17. Reverse the order of an array
@@ -301,6 +313,17 @@ var countValuesInObj = function(obj, value) {
 var replaceKeysInObj = function(obj, oldKey, newKey) {
 };
 
+
+
+
+
+
+
+
+
+
+// SKIP TO 27!
+
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
 // number is the sum of the previous two.
 // Example: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
@@ -316,6 +339,16 @@ var fibonacci = function(n) {
 // nthFibo(3); // 2
 var nthFibo = function(n) {
 };
+
+
+
+
+
+
+
+
+
+
 
 // 27. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
@@ -376,6 +409,17 @@ var minimizeZeroes = function(array) {
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
 };
+
+// END
+
+
+
+
+
+
+
+
+
 
 // 36. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
