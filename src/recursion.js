@@ -381,6 +381,7 @@ var countOccurrence = function(array, value) {
 
 };
 
+// for countOccurrence
 // 1. Interpret the prompt
   // return the number of times a value appears in a list
 // 2. IOCE: input, output, constraints, edge cases
@@ -402,7 +403,27 @@ var countOccurrence = function(array, value) {
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  var result = [];
+
+  if (array.length === 0) {
+    return result;
+  }
+
+  result.push(callback(array[0]));
+  array = array.slice(1);
+
+  result = result.concat(rMap(array, callback));
+  return result;
 };
+
+
+
+
+
+
+
+
+
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
