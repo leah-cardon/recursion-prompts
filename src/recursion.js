@@ -97,14 +97,73 @@ var sumBelow = function(n) {
 
 };
 
-
-
-
-
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  // create result array
+  var result = [];
+
+  // take care of edge case and base cases in one
+  if (x - 1 === y || x + 1 === y || x === y) {
+  return result;
+  }
+
+  // recursive cases:
+  // if starting > ending
+  if (x > y) {
+    // call with x - 1
+    result.push(x - 1);
+    result = result.concat(range(x - 1, y));
+  } else {
+    // call with x + 1
+    result.push(x + 1);
+    result = result.concat(range(x + 1, y));
+  }
+
+  return result;
+
 };
+
+
+// 1. Interpret the prompt
+// 2. IOCE: input, output, constraints, edge cases
+// 3. Write tests
+// 4. High level strategy(s)
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+// FOR RANGE()
+// get integers between starting and ending integers in a range, not inclusive
+
+// I: min and max integers
+// O: array of integers
+// C: accepts negative integers and starting > ending
+// E: return empty array if no integers in range
+
+// iterate from starting to ending recursively
+// push current integer to result array each iteration
+// not inclusive of starting and ending
+// waht does no range mean? x + 1 = y or x - 1 = y or x = y or x or y are undefined
+
+
+// take care of edge case: return [] if no range
+// base case:
+  // when starting === ending, return
+// recursive cases:
+// if starting > ending
+  // call with x - 1
+// else
+  // call with x + 1
+
+// -----------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
