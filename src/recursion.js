@@ -281,15 +281,28 @@ var reverseArr = function(array) {
   return reversedArray;
 };
 
-
-
-
-
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  var result = [];
+
+  if (length === 0) {
+    return result;
+  }
+
+  result.push(value);
+  result = result.concat(buildList(value, length - 1));
+
+  return result;
+
 };
+
+
+
+
+
+
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
 // For multiples of three, output 'Fizz' instead of the number.
