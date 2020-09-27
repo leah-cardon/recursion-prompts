@@ -157,21 +157,48 @@ var range = function(x, y) {
 
 // -----------------------------------------------------------------
 
-
-
-
-
-
-
-
-
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+
+  // declare result
+  var result = 1;
+
+  // base case
+  if (exp === 0) {
+    return result;
+  }
+
+  // recursive case if exponent is positive and even
+  if (exp > 0 && exp % 2 === 0) {
+    result *= base;
+    return exponent(result, exp - 1);
+  }
+
+  // if (exp > 0 && exp % 2 === 1) {
+  //   result *=
+  // }
+
+  if (exp < 0) {
+    return 1 / result;
+  }
+
+
 };
+
+
+
+
+
+
+
+
+
+
+
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
