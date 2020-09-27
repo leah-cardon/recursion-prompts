@@ -298,19 +298,69 @@ var buildList = function(value, length) {
 
 };
 
-
-
-
-
-
-
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
 // For multiples of three, output 'Fizz' instead of the number.
 // For multiples of five, output 'Buzz' instead of the number.
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+
+  var result = [];
+  var stringToPush = '';
+
+  // base case
+  if (n === 0) {
+    return result;
+  }
+
+  // recursive case
+  if (n % 3 === 0) {
+    stringToPush += 'Fizz';
+  }
+  if (n % 5 === 0) {
+    stringToPush += 'Buzz';
+  }
+  if (n % 3 !== 0 && n % 5 !== 0) {
+    stringToPush += n.toString();
+  }
+
+  result.push(stringToPush);
+
+  result = (fizzBuzz(n - 1)).concat(result);
+
+  console.log(result);
+  return result;
+
 };
+
+
+
+
+// FOR FIZZBUZZ
+
+// 1. Interpret the prompt
+  // transform an integer into an array of strings of 1 to n. replace multiples of 3 with fizz, 5 with buzz, and 3 and 5 with fizzbuzz
+// 2. IOCE: input, output, constraints, edge cases
+  // input: integer n
+  // output: array of string representations of numbers 1 to n (replace multiples of 3 with fizz and multiples of 5 with buzz or both with fizzbuzz
+  // constraints: should use recursion and have one argument
+  // edge cases: none accounted for in tests so i can assume 1 to n, positive integers i think
+// 3. Write tests
+// 4. High level strategy(s)
+  // iterate backwards from n, adding the result onto the front of the array each call
+  // if statements to catch multiples of 3 and 5 using modulo.
+  // convert result to string and push to result array
+  // add string onto result string to account for FizzBuzz. just run through 3 if statement first
+  // concat result of each recursive call onto result array
+  // return result
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+
+
+
+
+// ---------------------------------------------------------------
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
