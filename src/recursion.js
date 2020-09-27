@@ -357,16 +357,47 @@ var fizzBuzz = function(n) {
 // 6. Implement the solution
 
 
-
-
-
 // ---------------------------------------------------------------
+
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  var counter = 0;
+
+  // base case
+  if (array.length === 0) {
+    return counter;
+  }
+
+  if (array[0] === value) {
+    counter++;
+  }
+
+  counter += countOccurrence(array.slice(1), value);
+
+  return counter;
+
 };
+
+// 1. Interpret the prompt
+  // return the number of times a value appears in a list
+// 2. IOCE: input, output, constraints, edge cases
+  // I: array, target value
+  // O: an integer that represents the number of times the value appeared
+// 3. Write tests
+// 4. High level strategy(s)
+  // iterate through array by examining array[0] then slicing (1)
+  // if array[0] === value
+    // iterate a counter
+  // return counter at the end
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+
+
+
 
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
