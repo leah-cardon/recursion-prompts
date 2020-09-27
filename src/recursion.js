@@ -2,11 +2,24 @@
 
 // Solve the following prompts using recursion.
 
+
+
+// 1. Interpret the prompt
+// 2. IOCE: input, output, constraints, edge cases
+// 3. Write tests
+// 4. High level strategy(s)
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+
+
+
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+
   if (n < 0) {
     return null;
   }
@@ -15,29 +28,31 @@ var factorial = function(n) {
     return 1;
   }
 
-  console.log(n * factorial(n - 1));
   return (n * factorial(n - 1));
+
 };
-
-
-
-// example
-// function stepsToZero(n) {
-//   if (n === 0) { /* base case */
-//     return 'Reached zero';
-//   } else { /* recursive case */
-//     console.log(n + ' is not zero');
-//     return stepsToZero(n-1);
-//   }
-// }
-
-
-
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+
+  if (array.length === 0) {
+    return 0;
+  } else {
+    return array[0] + sum(array.slice(1));
+  }
+
 };
+
+
+
+
+
+
+
+
+
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
