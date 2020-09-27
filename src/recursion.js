@@ -87,11 +87,10 @@ var sumBelow = function(n) {
 
   if (n < 0) {
     var nIsNegative = true;
-    n = Math.abs(n);
   }
 
   if (nIsNegative) {
-    return -((n - 1) + (sumBelow(n - 1)));
+    return (n + 1) + (sumBelow(n + 1));
   }
 
   return (n - 1) + (sumBelow(n - 1));
