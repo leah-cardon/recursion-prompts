@@ -463,19 +463,39 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  var result = 0;
+
+  for (var keyName in obj) {
+    if (obj[keyName] === value) {
+      result++;
+    }
+    if (typeof (obj[keyName]) === 'object' && !Array.isArray(obj[keyName])) {
+      result += countValuesInObj(obj[keyName], value);
+    }
+  }
+
+  return result;
 };
-
-// 1. Interpret the prompt
-// 2. IOCE: input, output, constraints, edge cases
-// 3. Write tests
-// 4. High level strategy(s)
-// 5. Pseudocode the strategy
-// 6. Implement the solution
-
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+
+  var result = 0;
+
+  for (var keyName in obj) {
+    if (keyName === oldKey) {
+      var oldKeyValue = obj[keyName];
+      delete obj[keyName];
+      obj[newKey] = oldKeyValue;
+    }
+    if (typeof (obj[keyName]) === 'object' && !Array.isArray(obj[keyName])) {
+      replaceKeysInObj(obj[keyName], oldKey, newKey);
+    }
+  }
+
+  return obj;
+
 };
 
 // 1. Interpret the prompt
