@@ -328,7 +328,6 @@ var fizzBuzz = function(n) {
 
   result = (fizzBuzz(n - 1)).concat(result);
 
-  console.log(result);
   return result;
 
 };
@@ -416,21 +415,48 @@ var rMap = function(array, callback) {
   return result;
 };
 
-
-
-
-
-
-
-
-
-
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
 // countKeysInObj(obj, 'r') // 1
 // countKeysInObj(obj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+
+  var result = 0;
+
+  for (var keyName in obj) {
+    if (keyName === key) {
+      result++;
+    }
+    if (typeof (obj[keyName]) === 'object' && !Array.isArray(obj[keyName])) {
+      result += countKeysInObj(obj[keyName], key);
+    }
+  }
+
+  return result;
+
 };
+
+
+
+// FOR COUNTKEYSINOBJ
+  // 1. Interpret the prompt: count the number of times a key occurs in an object, including when it occurs as a key in any nested objects
+// 2. IOCE: input, output, constraints, edge cases
+  // I: object
+  // O: a number representing the # of times the given key occurs
+  // C:
+// 3. Write tests
+// 4. High level strategy(s)
+  // create an output variable (number)
+  // for-in loop to go through all keys in object
+  // if the value at the given key is also an object, call countKeysInObject on that object as well, recursively
+  // if key is defined in the result object, iterate the value associated to that key
+  // if it doesn't exist, make it exist and set it to 1
+  // at the end, return the
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+
+
 
 // 23. Write a function that counts the number of times a value occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
@@ -439,11 +465,25 @@ var countKeysInObj = function(obj, key) {
 var countValuesInObj = function(obj, value) {
 };
 
+// 1. Interpret the prompt
+// 2. IOCE: input, output, constraints, edge cases
+// 3. Write tests
+// 4. High level strategy(s)
+// 5. Pseudocode the strategy
+// 6. Implement the solution
+
+
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
 };
 
+// 1. Interpret the prompt
+// 2. IOCE: input, output, constraints, edge cases
+// 3. Write tests
+// 4. High level strategy(s)
+// 5. Pseudocode the strategy
+// 6. Implement the solution
 
 
 
